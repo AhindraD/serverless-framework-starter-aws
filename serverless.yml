@@ -1,0 +1,22 @@
+service: starter-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  starterApiFn:
+    handler: starter-api.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+  
+  addedRouteFn:
+    handler: added-route.handler
+    events:
+      - httpApi:
+          path: /added
+          method: get
